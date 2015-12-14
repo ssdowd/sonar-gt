@@ -49,6 +49,17 @@ docker-compose logs
 Reload the Sonar page in your browser.
 
 Click Quality Profiles from the top menu, then click Restore Profile.  Load the profile configuration from the config directory in this project.  Repeat for all of them.
+
+Click Quality Gates.  Copy the 'Sonar Way' to 'Roche Gate'. Delete all of the existing conditions and recreate as defined in Roche's Sonar (table below), then make it the default:
+
+| Condition | Test | Predicate | Warn Value | Error Value |
+|-----------|---|---|---|---|
+| Blocker issues	| Value |	is greater than | | 0 |
+| Complexity /class	| Value |is greater than| 10| 25|
+|Coverage	|Value	|is less than|50|20|
+|Critical issues|Value|is greater than|0|
+|Duplicated lines (%)|Value|is greater than|5| 10|
+|Overall coverage|Value|is less than	 |10|
  
 ## Sonar Project Run
 Make sure your swaserver is running or you point the Spring profile at a testable environment.
