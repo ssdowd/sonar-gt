@@ -9,7 +9,7 @@
 * Install docker-compose: ```brew install docker-compose```
 * Clone this repo.
 
-## Running
+## Starting Sonar
 Run ```docker-compose up -d``` to start Sonar (with Postgres).  It will be running on port 9000 on your docker host's IP.  You can retrieve that via ```docker-machine ip <machine-name>```.
 
 You will also need a local sonar-runner to invoke sonar on the server.
@@ -50,7 +50,7 @@ Reload the Sonar page in your browser.
 
 Click Quality Profiles from the top menu, then click Restore Profile.  Load the profile configuration from the config directory in this project.  Repeat for all of them.
  
-## Sonar Run
+## Sonar Project Run
 Make sure your swaserver is running or you point the Spring profile at a testable environment.
 
 ```
