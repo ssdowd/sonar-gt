@@ -24,11 +24,44 @@ Logs via ```docker-compose logs```
 ## Sonar Configuration
 Load the Java configuration from the config directory using the Sonar console.
 
+Add an entry to your hosts file for mydocker.
+
+Go to http://mydocker:9000, login as admin/admin.
+
+Go to Settings, then Update Center.  Click Available Plugins.  Install:
+
+* Javascript
+* Web
+* Cobertura
+* Sonargraph
+
+
+**Don't do Checkstyle and PMD.**
+
+Restart Sonar:
+
+```
+docker-compose stop
+docker-compose up -d
+docker-compose logs
+```
+
+Reload the Sonar page in your browser.
+
+Click Quality Profiles from the top menu, then click Restore Profile.  Load the profile configuration from the config directory in this project.  Repeat for all of them.
+
+You can also define quality gates for thresholds similar to GT.  Not strictly necessary.
+ 
 ## Sonar Run
+Make sure your swaserver is running or you point the Spring profile at a testable environment.
+
 ```
 mvn org.jacoco:jacoco-maven-plugin:prepare-agent \
 clean install sonar:sonar \
 -Dsonar.host.url=http://mydocker:9000 \
 -Dsonar.jdbc.url=jdbc:postgresql://mydocker/sonar
 ```
+
+Then go back to the Sonar console and view results.  You can also tie your Eclipse project to mydocker:9000 and analyze/sync from there, however the maven command above will work better.
+
 
