@@ -16,7 +16,7 @@ You will also need a local sonar-runner to invoke sonar on the server.
 
 It will take a while to start up the first time.  It will also need to be configured with your local Sonar rules.
 
-Access at http://<docker-ip>:9000
+Access [Sonar console here http://mydocker:9000](http://mydocker:9000)
 
 Logs via ```docker-compose logs```
 
@@ -26,7 +26,7 @@ Load the Java configuration from the config directory using the Sonar console.
 
 Add an entry to your hosts file for mydocker.
 
-Go to http://mydocker:9000, login as admin/admin.
+Go to [http://mydocker:9000](http://mydocker:9000), login as admin/admin.
 
 Go to Settings, then Update Center.  Click Available Plugins.  Install:
 
@@ -49,8 +49,6 @@ docker-compose logs
 Reload the Sonar page in your browser.
 
 Click Quality Profiles from the top menu, then click Restore Profile.  Load the profile configuration from the config directory in this project.  Repeat for all of them.
-
-You can also define quality gates for thresholds similar to GT.  Not strictly necessary.
  
 ## Sonar Run
 Make sure your swaserver is running or you point the Spring profile at a testable environment.
