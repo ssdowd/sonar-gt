@@ -60,6 +60,7 @@ Click Quality Gates.  Copy the 'Sonar Way' to 'Roche Gate'. Delete all of the ex
 |Critical issues|Value|is greater than|0|
 |Duplicated lines (%)|Value|is greater than|5| 10|
 |Overall coverage|Value|is less than	 |10|
+|SQALE Technical Debt Ratio|Value|is greater than|10|20|
  
 ## Sonar Project Run
 Make sure your swaserver is running or you point the Spring profile at a testable environment.
