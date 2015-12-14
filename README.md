@@ -10,12 +10,25 @@
 * Clone this repo.
 
 ## Running
-Run ```docker-compose up``` to start Sonar (with Postgres).  It will be running on port 9000 on your docker host's IP.  You can retrieve that via ```docker-machine ip <machine-name>```.
+Run ```docker-compose up -d``` to start Sonar (with Postgres).  It will be running on port 9000 on your docker host's IP.  You can retrieve that via ```docker-machine ip <machine-name>```.
 
 You will also need a local sonar-runner to invoke sonar on the server.
 
 It will take a while to start up the first time.  It will also need to be configured with your local Sonar rules.
+
 Access at http://<docker-ip>:9000
+
+Logs via ```docker-compose logs```
 
 
 ## Sonar Configuration
+Load the Java configuration from the config directory using the Sonar console.
+
+## Sonar Run
+```
+mvn org.jacoco:jacoco-maven-plugin:prepare-agent \
+clean install sonar:sonar \
+-Dsonar.host.url=http://mydocker:9000 \
+-Dsonar.jdbc.url=jdbc:postgresql://mydocker/sonar
+```
+
